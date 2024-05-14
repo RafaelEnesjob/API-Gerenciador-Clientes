@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 
+
 @Entity
 @Table(name = "tb_clientes")
 @Getter
@@ -18,18 +19,18 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
-    private String sobreNome;
-    private Integer idade;
-    private String email;
-    private String telefone;
+    private String cpfCnpj;
     private LocalDate dataNascimento;
-    private String documento;
-    private TipoClienteEnum tipoClienteEnum;
+    private String endereco;
+    private Integer numero;
+    private String bairro;
+    private String cep;
+    private String telefone;
+    private String email;
+    private boolean ativo;
+    private TipoClienteEnum tipoCliente;
     @ManyToOne
     @JoinColumn(name = "cidade_id")
     private Cidade cidade;
-
-
 }

@@ -15,11 +15,7 @@ public class Cidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
-    private String endereco;
-    private Integer numero;
-    private String bairro;
-    private String cep;
     private String uf;
+    private String codIBGE;
 }
