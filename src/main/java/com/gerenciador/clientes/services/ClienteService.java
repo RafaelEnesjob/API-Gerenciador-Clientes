@@ -1,5 +1,6 @@
 package com.gerenciador.clientes.services;
 
+import com.gerenciador.clientes.exceptions.CpfCnpjException;
 import com.gerenciador.clientes.mapper.ClienteMapper;
 import com.gerenciador.clientes.models.dto.request.ClienteRequest;
 import com.gerenciador.clientes.models.dto.response.ClienteResponse;
@@ -20,21 +21,18 @@ public class ClienteService {
         this.clienteRepository = clienteRepository;
     }
 
-    /*
-    * Criar um método para cadastrar um cliente na base de dados
-    *
-    *
-    *
-    *
-    *
-    *  */
+
     @Transactional
     public ClienteResponse cadastrarCliente(final ClienteRequest clienteRequest) {
-        Optional<Cliente> cpfCnpjCliente = clienteRepository.findByCpfCnjp(clienteRequest.getCpfCnpj());
-        if (cpfCnpjCliente.isPresent()) {
-            throw
-        }
+        // Verificar se o CPF/CNPJ já existe
+//        Optional<Cliente> cpfCnpjCliente = clienteRepository.findByCpfCnpj(clienteRequest.getCpfCnpj());
+//        if (cpfCnpjCliente.isPresent()) {
+//            throw new CpfCnpjException();
+//        }
 
+        Cliente cliente = clienteMapper.toClienteEntity(clienteRequest);
+        Cliente clienteSalvo = clienteRepository.save(cliente);
+        return clienteMapper.toClienteResponse(clienteSalvo);
     }
 
 }

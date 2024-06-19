@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 
 
-    Optional<Cliente> findByCpfCnjp(String cpfCnpj);
+    Optional<Cliente> findByCpfCnpj(String cpfCnpj);
 }
